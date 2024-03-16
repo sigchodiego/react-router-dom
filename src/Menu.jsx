@@ -14,6 +14,14 @@ routes.push({
   to: "/profile",
   text: "Profile",
 });
+routes.push({
+  to: "/login",
+  text: "Login",
+});
+routes.push({
+  to: "/Logout",
+  text: "Logout",
+});
 
 let currentStyle = (isActive) => ({
   color: isActive ? "red" : "green",
