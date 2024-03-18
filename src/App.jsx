@@ -6,7 +6,7 @@ import { Menu } from "./Menu";
 import { BlogPost } from "./BlogPost";
 import { LoginPage } from "./LoginPage";
 import { LogoutPage } from "./LogoutPage";
-import { AuthProvider } from "./auth.jsx";
+import { AuthProvider, AuthRoute } from "./auth.jsx";
 
 function App() {
   return (
@@ -21,8 +21,22 @@ function App() {
             </Route>
 
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/logout" element={<LogoutPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
+            <Route
+              path="/logout"
+              element={
+                <AuthRoute>
+                  <LogoutPage />
+                </AuthRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <AuthRoute>
+                  <ProfilePage />
+                </AuthRoute>
+              }
+            />
             <Route path="/*" element={<h1>Not found</h1> /* Default page */} />
           </Routes>
         </AuthProvider>

@@ -1,3 +1,9 @@
+import { AuthRoute } from "./auth";
+
 export const ProfilePage = () => {
-  return <p>Profile Page</p>;
+  return (
+    <AuthRoute>
+      <p>Profile Page</p>;
+    </AuthRoute>
+  );
 };
