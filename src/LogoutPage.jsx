@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useAuth } from "./auth";
 
 export const LogoutPage = () => {
-  const [username, setUsername] = useState("");
+  const auth = useAuth();
   const logout = () => {
     // e.prevenDefault();
-    console.log("salida exitosa");
+    auth.login(false);
   };
 
   return (
@@ -12,11 +12,7 @@ export const LogoutPage = () => {
       <h1>Logout</h1>
       <form onSubmit={() => logout()}>
         <label>Escribe tu nombre de usuario</label>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
+        <input type="text" />
         <button type="submit">Salir</button>
       </form>
     </>
